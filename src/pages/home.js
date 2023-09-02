@@ -30,7 +30,7 @@ function App({ isAuth }) {
           <div className='postHeader'>
             <div className='title'>
             <div className='deletPost'>
-              {isAuth && post.author.id == auth.currentUser.uid && <button onClick={() => {deletePost(post.id)}}>Delete</button>}
+              {isAuth && post.author.id === auth.currentUser.uid && <button onClick={() => {deletePost(post.id)}}>Delete</button>}
             </div>
               <h1>{post.title}</h1>
             </div>
