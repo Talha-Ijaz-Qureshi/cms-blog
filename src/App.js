@@ -6,7 +6,6 @@ import Login from './pages/login'
 import React, { useState, useEffect } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth } from './firebase-config';
-import logo from './images/logo192.png'; 
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -29,7 +28,7 @@ function App() {
       <nav>
         <div>
         </div>
-        <Link to="/">Home</Link>
+        <Link to="/cms-blog">Home</Link>
         {!isAuth ? (
           <Link to="/login">Login</Link>
          ) : (
@@ -40,7 +39,7 @@ function App() {
         )}
       </nav>
       <Routes>
-        <Route path='/' element={<Home isAuth={isAuth} />} />
+        <Route path='/cms-blog' element={<Home isAuth={isAuth} />} />
         <Route path='/author' element={<Author isAuth={isAuth}/>} />
         <Route path='/login' element={<Login setIsAuth={setIsAuth} />} />
 
