@@ -6,7 +6,7 @@ import Login from './pages/login'
 import React, { useState, useEffect } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth } from './firebase-config';
-
+ 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
   useEffect(() => {
@@ -27,16 +27,19 @@ function App() {
     <Router>
       <nav>
         <div>
+          <h1>REACT.BLOGGING</h1>
         </div>
+        <div className='links'>
         <Link to="/cms-blog">Home</Link>
         {!isAuth ? (
           <Link to="/login">Login</Link>
          ) : (
           <>
-        <Link to="/author">Create</Link>  <Link onClick={signUserOut}>Log Out</Link>
+        <Link to="/author">Publish</Link>  <Link onClick={signUserOut}>Log Out</Link>
         
         </>
         )}
+        </div>
       </nav>
       <Routes>
         <Route path='/cms-blog' element={<Home isAuth={isAuth} />} />
@@ -44,6 +47,10 @@ function App() {
         <Route path='/login' element={<Login setIsAuth={setIsAuth} />} />
 
       </Routes>
+      <footer>
+      <svg width="100%" height="100%" viewBox="-10.5 -9.45 21 18.9" fill="none" xmlns="http://www.w3.org/2000/svg" ><circle cx="0" cy="0" r="2" fill="currentColor"></circle><g stroke="currentColor" stroke-width="1" fill="none"><ellipse rx="10" ry="4.5"></ellipse><ellipse rx="10" ry="4.5" transform="rotate(60)"></ellipse><ellipse rx="10" ry="4.5" transform="rotate(120)"></ellipse></g></svg>        
+      <h1></h1>
+      </footer>
     </Router>
   );
 }
