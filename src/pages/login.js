@@ -1,10 +1,12 @@
 import '../App.css';
 import { auth, provider } from '../firebase-config';
-import { signInWithRedirect } from 'firebase/auth';
-  
+import { signInWithPopup } from 'firebase/auth';
+
 function App({ setIsAuth }) {
+  
+
   const signInWithGoogle = () => {
-    signInWithRedirect(auth, provider).then((result) =>{
+    signInWithPopup(auth, provider).then((result) =>{
       localStorage.setItem("isAuth", true);
       setIsAuth(true);
       window.location.pathname = "/cms-blog"
